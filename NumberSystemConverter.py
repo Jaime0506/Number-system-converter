@@ -5,6 +5,23 @@
 # desplazamiento entregar El mensaje ascii sin codificación cesar y con codificación 
 # cesar.
 
+def checkBaseNumber(number):
+    number = str(number)
+
+    values = {
+        'A': '10',
+        'B': '11',
+        'C': '12',
+        'D': '13',
+        'E': '14',
+        'F': '15'
+    }
+
+    if number in values:
+        return values[number]
+    else:
+        return number
+
 def setHexaValue(base):
     hexaValue = {}
     
@@ -174,6 +191,14 @@ def runCode():
 
             number = number.upper()
             
+            for value in number:
+                newNumber = checkBaseNumber(value)
+
+                if int(newNumber) >= int(base):
+                    print("")
+                    print('El valor {} no corresponde a la base {}'.format(value, base))
+                    raise Exception("")
+
             valueInDecimal = otherBaseToDecimal(number, base)
             result = decimalToOtherBase(valueInDecimal, otherBase)
             resultFormated = splitBits(formaterBinary(valueInDecimal))
@@ -202,4 +227,3 @@ def runCode():
                 print("")
                 print("Las base actual y a converit deben ser mayor o iguales a 2 y menor o igual a 16")
 runCode()
-            
