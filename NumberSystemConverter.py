@@ -5,6 +5,9 @@
 # desplazamiento entregar El mensaje ascii sin codificación cesar y con codificación 
 # cesar.
 
+# Creado por Jaime Mejia.
+# Github: Jaime0506
+
 def checkBaseNumber(number):
     number = str(number)
 
